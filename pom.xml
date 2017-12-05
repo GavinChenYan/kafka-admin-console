@@ -42,6 +42,7 @@
         <version.junit>4.12</version.junit>
         <version.zookeeper>3.5.3-beta</version.zookeeper>
         <versions.maven-version>2.4</versions.maven-version>
+        <version.kafka-clients>1.0.0</version.kafka-clients>
         <argLine>-Xmx512m -XX:MaxPermSize=256m</argLine>
     </properties>
 
@@ -60,7 +61,11 @@
                 <artifactId>commons-lang</artifactId>
                 <version>${version.commons-lang}</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka-clients</artifactId>
+                <version>${version.kafka-clients}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
