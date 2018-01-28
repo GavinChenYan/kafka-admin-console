@@ -1,14 +1,19 @@
----
-acks: all
-retries: 0
-batchSize: 16384
-lingerms: 1
-bufferMemory: 33554432
-keySerializer: org.apache.kafka.common.serialization.StringSerializer
-valueSerializer: org.apache.kafka.common.serialization.StringSerializer
-keyDeSerializer: org.apache.kafka.common.serialization.StringDeserializer
-valueDeSerializer: org.apache.kafka.common.serialization.StringDeserializer
-sessionTimeout: 30000
-autoOffsetreset: earliest
-enableaAutocommit: false
+
+# common config
+zookeeperConnect: zookeeper.connect
+zookeeperConnectDoc: Zookeeper connect string.
+topicConfig: topic
+topicDoc: Topic to be used by the service.
 bootstrapServers: localhost:9092
+rebalanceIntervalConfig: topic-management.rebalance.interval.ms
+rebalanceIntervalDoc: The gap in ms between the times the cluster balance on the monitor topic is checked.  Set this to a large value to disable automatic topic rebalance.
+
+# consumer config
+consumerClassConfig: consume.consumer.class
+consumerClassDoc: Consumer class that will be instantiated as consumer in the consume service. It can be NewConsumer, OldConsumer, or full class name of any class that implements the KMBaseConsumer interface.
+latencyPercentileMaxConfig: consume.latency.percentile.max.ms
+latencyPercentileMaxDoc: This is used to derive the bucket number used to configure latency percentile metric. Any latency larger than this max value will be rounded down to the max value.
+latencyPercentileGrauConfig: consume.latency.percentile.granularity.ms
+latencyPercentileGrauDoc: This is used to derive the bucket number used to configure latency percentile metric. Any latency larger than this max value will be rounded down to the max value.
+latencySlaMsConfig: consume.latency.sla.ms
+latencySlaMsDoc: The maximum latency of message delivery under SLA. Consume availability is measured as the fraction of messages that are either lost or whose delivery latency exceeds this value";
